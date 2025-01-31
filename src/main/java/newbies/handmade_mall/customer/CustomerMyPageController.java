@@ -37,7 +37,7 @@ public class CustomerMyPageController {
 
         CustomerDto customerDto = responseApi.getOptData().orElseThrow(() -> new RuntimeException("계정 정보가 존재하지 않음"));
 
-        //DB에 ***-****-**** 형식으로 저장된 휴대전화번호 분리
+        //DB에 ***,****,**** 형식으로 저장된 휴대전화번호 분리
         String[] phoneNumbers = customerDto.getPhoneNumber().split(",");
 
         model.addAttribute("loginCustomer", customerDto);

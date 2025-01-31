@@ -57,10 +57,6 @@ public class CustomerManagementService {
     public ResponseApi<Void> update(CustomerDto customerDto) {
         Customer customer = getCustomer();
 
-
-        //휴대 전화번호 ***-****-**** 형식으로 저장
-        String phoneNumber = customerDto.getPhoneNumber();
-
         if (!customerDto.getName().isBlank()) {
             customer.setName(customerDto.getName());
         }
@@ -73,7 +69,7 @@ public class CustomerManagementService {
             customer.setEmail(customerDto.getEmail());
         }
 
-        customer.setPhoneNumber(phoneNumber);
+        customer.setPhoneNumber(customerDto.getPhoneNumber());
 
         return ResponseApi.of(HttpStatus.CREATED, "계정이 성공적으로 수정되었습니다.");
     }
